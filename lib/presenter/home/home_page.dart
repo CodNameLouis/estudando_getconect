@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import './home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
+  static const route = '/home';
+
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -12,6 +14,7 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Via Cep'),
+        centerTitle: true,
       ),
       body: const BodyHome(),
     );

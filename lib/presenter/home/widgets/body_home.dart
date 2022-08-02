@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class BodyHome extends StatelessWidget {
+import '../home_controller.dart';
+
+class BodyHome extends GetView<HomeController> {
   const BodyHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children:  const [
-        Padding(
-          padding: EdgeInsets.all(15.0),
-          child: TextField(
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xff3b0037))
-              ),
-              label: Text(
-                "CEP",
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
+    return GetBuilder<HomeController>(
+      builder: (_control) {
+        return Column(
+          children: [
+            ListTile(
+              title: Text(_control.adress?.city.name ?? ""),
+              subtitle: Text(_control.adress?.zipCode ?? ""),
             ),
-          ),
-        )
-      ],
+            ListTile(
+              title: Text(_control.adress?.country.name ?? ""),
+              subtitle: Text(_control.adress?.state.name ?? ""),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Proxima pagina'),
+            )
+          ],
+        );
+      },
     );
   }
 }

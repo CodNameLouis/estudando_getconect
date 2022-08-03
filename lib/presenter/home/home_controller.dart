@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../infra/models/response/adress_response_model.dart';
-import '../../infra/repositories/cep_repository.dart';
+import '../../infra/repositories/adress_repository.dart';
 
 class HomeController extends GetxController {
   final AdressRepository _userRepository;
@@ -14,7 +14,7 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-AdressResponseModel? adress;
+  AdressResponseModel? adress;
 
   Future getInfo() async {
     _changeIsLoading(true);

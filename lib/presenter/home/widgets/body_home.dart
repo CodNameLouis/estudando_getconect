@@ -1,3 +1,4 @@
+import 'package:estudando_getconect/routes/routes_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,9 +22,13 @@ class BodyHome extends GetView<HomeController> {
               subtitle: Text(_control.adress?.state.name ?? ""),
             ),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Proxima pagina'),
-            )
+              onPressed: () {
+                Get.toNamed(SecondPage.route);
+              },
+              child: const Text(
+                'Proxima pagina',
+              ),
+            ),
           ],
         );
       },

@@ -11,5 +11,10 @@ class AppPages {
       page: () => const HomePage(),
       binding: HomeBindings(),
     ),
+    GetPage(
+      name: SecondPage.route,
+      page: () => const SecondPage(),
+      binding: SecondBindings(),
+    ),
   ];
 }

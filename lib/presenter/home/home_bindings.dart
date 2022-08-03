@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import './home_controller.dart';
-import '../../infra/repositories/cep_repository.dart';
+import '../../infra/repositories/adress_repository.dart';
 
 class HomeBindings implements Bindings {
   @override

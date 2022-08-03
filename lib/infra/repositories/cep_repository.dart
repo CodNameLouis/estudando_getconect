@@ -1,17 +1,17 @@
-import 'package:estudando_getconect/infra/models/response/adress_response_model.dart';
+import 'package:estudando_getconect/infra/api_endpoints.dart';
 import 'package:get/get.dart';
 
-import '../api_endpoints.dart';
+import '../models/response/cep_response_model.dart';
 
-class AdressRepository {
-  final GetConnect _connect;
-  const AdressRepository(this._connect);
+class CepRepository {
+  final GetConnect connect;
 
-  Future<AdressResponseModel> getAdress() async {
-    final _response = await _connect.get(ApiEndpoints.adress);
-    if (_response.isOk) {
-      return AdressResponseModel.fromMap(_response.body);
+  CepRepository(this.connect);
+  Future<CepResponseModel> getCep() async {
+    final response = await connect.get(ApiEndpoints.adress);
+    if (response.isOk) {
+      return CepResponseModel.fromMap(response.body);
     }
-    return throw Exception('Nao foi possivel buscar o endereço');
+    return throw Exception("Não encontrado");
   }
 }

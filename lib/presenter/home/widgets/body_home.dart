@@ -13,6 +13,9 @@ class BodyHome extends GetView<HomeController> {
       builder: (_control) {
         return Column(
           children: [
+            TextField(
+              onChanged: _control.changeCep,
+            ),
             ListTile(
               title: Text(_control.adress?.city.name ?? ""),
               subtitle: Text(_control.adress?.zipCode ?? ""),
@@ -20,6 +23,17 @@ class BodyHome extends GetView<HomeController> {
             ListTile(
               title: Text(_control.adress?.country.name ?? ""),
               subtitle: Text(_control.adress?.state.name ?? ""),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                _control.getInfo();
+              },
+              child: const Text(
+                'Buscar endereço',
+              ),
+            ),
+            const SizedBox(
+              height: 250,
             ),
             ElevatedButton(
               onPressed: () {

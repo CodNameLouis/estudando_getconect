@@ -7,8 +7,8 @@ class AdressRepository {
   final GetConnect _connect;
   const AdressRepository(this._connect);
 
-  Future<AdressResponseModel> getAdress() async {
-    final _response = await _connect.get(ApiEndpoints.adress);
+  Future<AdressResponseModel> getAdress(String zipCode) async {
+    final _response = await _connect.get(ApiEndpoints.adress + zipCode);
     if (_response.isOk) {
       return AdressResponseModel.fromMap(_response.body);
     }

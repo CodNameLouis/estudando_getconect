@@ -16,7 +16,7 @@ class HomePage extends GetView<HomeController> {
         title: const Text('Via Cep'),
         centerTitle: true,
       ),
-      body: const BodyHome(),
+      body: const SingleChildScrollView(child: BodyHome()),
     );
   }
 }

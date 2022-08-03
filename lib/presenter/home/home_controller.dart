@@ -8,11 +8,14 @@ class HomeController extends GetxController {
 
   HomeController(this._userRepository);
 
-  @override
-  Future<void> onInit() async {
-    await getInfo();
-    super.onInit();
-  }
+  // @override
+  // Future<void> onInit() async {
+  //   await getInfo();
+  //   super.onInit();
+  // }
+
+  String zipCode = '';
+  void changeCep(String value) => zipCode = value;
 
   AdressResponseModel? adress;
 
@@ -20,7 +23,7 @@ class HomeController extends GetxController {
     _changeIsLoading(true);
 
     try {
-      adress = await _userRepository.getAdress();
+      adress = await _userRepository.getAdress(zipCode);
     } catch (e) {
       Get.rawSnackbar(
         title: 'Não foi possível obter as informações',
